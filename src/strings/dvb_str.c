@@ -779,7 +779,7 @@ char *dvbstrOrigin_TYPE (u_int flag)
 
 /*
  -- Service Link Descriptor
- -- Updated: EN 300 468 1.7.1
+ -- Updated: 2015-10-31 EN 300 468 1.14.1
 */ 
 
 char *dvbstrService_TYPE (u_int flag)
@@ -792,8 +792,9 @@ char *dvbstrService_TYPE (u_int flag)
      {  0x04, 0x04,  "NVOD reference service" },
      {  0x05, 0x05,  "NVOD time-shifted service" },
      {  0x06, 0x06,  "mosaic service" },
-     	// -- 0x07 - 0x0B has been changed in EN 300 468 v1.7.1
-     {  0x07, 0x08,  "reserved" },
+     {  0x07, 0x07,  "FM radio service" },
+     {  0x08, 0x08,  "DVB SRM service" },
+     {  0x09, 0x09,  "reserved" },
      {  0x0A, 0x0A,  "advanced codec digital radio sound service" },
      {  0x0B, 0x0B,  "advanced codec mosaic service" },
      {  0x0C, 0x0C,  "data broadcast service" },
@@ -809,7 +810,10 @@ char *dvbstrService_TYPE (u_int flag)
      {  0x19, 0x19,  "advanced codec HD digital television service" },
      {  0x1A, 0x1A,  "advanced codec HD NVOD time-shifted service" },
      {  0x1B, 0x1B,  "advanced codec HD NVOD reference service" },
-     {  0x1C, 0x7F,  "reserved" },
+     {  0x1C, 0x1C,  "advanced codec frame compatible plano-stereoscopic HD digital television service" },
+     {  0x1D, 0x1D,  "advanced codec frame compatible plano-stereoscopic HD NVOD time-shifted service" },
+     {  0x1E, 0x1E,  "advanced codec frame compatible plano-stereoscopic HD NVOD reference service" },
+     {  0x1F, 0x7F,  "reserved" },
      {  0x80, 0xFE,  "User defined" },
      {  0xFF, 0xFF,  "reserved" },
      {  0,0, NULL }
@@ -1079,6 +1083,7 @@ char *dvbstrOriginalNetwork_ID (u_int i)
 {
   STR_TABLE  Table[] = {
 	// -- updated 2003-10-16
+	// -- updated 2015-10-31
 	// -- { Original Network ID, Original Network ID,   "Description | Operator" },
 	{ 0x0000, 0x0000,   "Reserved | Reserved" },
 	{ 0x0001, 0x0001,   "Astra Satellite Network 19,2°E | Société Européenne des Satellites" },
@@ -1086,12 +1091,16 @@ char *dvbstrOriginalNetwork_ID (u_int i)
 	{ 0x0003, 0x0019,   "Astra | Société Européenne des Satellites" },
 	{ 0x001A, 0x001A,   "Quiero Televisión | Quiero Televisión" },
 	{ 0x001B, 0x001B,   "RAI | RAI" },
+	{ 0x001C, 0x001C,   "Hellas-Sat S.A. | Hellas-Sat S.A." },
+	{ 0x001D, 0x001D,   "TELECOM ITALIA MEDIA BROADCASTING SRL | TELECOM ITALIA MEDIA BROADCASTING SRL" },
 	{ 0x001F, 0x001F,   "Europe Online Networks (EON) | Europe Online Networks S.A" },
 	{ 0x0020, 0x0020,   "ASTRA | Société Européenne des Satellites" },
 	{ 0x0021, 0x0026,   "Hispasat Network | Hispasat S.A." },
 	{ 0x0027, 0x0027,   "Hispasat 30°W | Hispasat FSS" },
 	{ 0x0028, 0x0028,   "Hispasat 30°W | Hispasat DBS" },
 	{ 0x0029, 0x0029,   "Hispasat 30°W | Hispasat America" },
+	{ 0x002A, 0x002A,   "Päijät-Hämeen Puhelin Oyj | Päijät-Hämeen Puhelin Oyj" }, //???
+	{ 0x002B, 0x002B,   "Digita Oy | Digita Oy" }, //???
 	{ 0x002E, 0x002E,   "Xantic | Xantic BU Broadband" },
 	{ 0x002F, 0x002F,   "TVNZ Digital | TVNZ" },
 	{ 0x0030, 0x0030,   "Canal+ Satellite Network | Canal+ SA (for Intelsat 601-325°E)" },
@@ -1101,20 +1110,45 @@ char *dvbstrOriginalNetwork_ID (u_int i)
 	{ 0x0036, 0x0036,   "TV Cabo | TV Cabo Portugal" },
 	{ 0x0037, 0x0037,   "STENTOR | France Telecom, CNES and DGA" },
 	{ 0x0038, 0x0038,   "OTE | Hellenic Telecommunications Organization S.A." },
+	{ 0x0039, 0x0039,   "Broadcast Australia Pty. | Broadcast Australia Pty." },
+	{ 0x003A, 0x003A,   "GeoTelecom Satellite Services | GeoTelecom Satellite Services" },
+	{ 0x003B, 0x003B,   "BBC | BBC" },
+	{ 0x003C, 0x003C,   "KPN Broadcast Services | KPN Broadcast Services" },
+	{ 0x003D, 0x003D,   "Skylogic Italia S.A. | Skylogic Italia S.A." },
+	{ 0x003E, 0x003E,   "Eutelsat S.A. | Eutelsat S.A." },
+	{ 0x003F, 0x003F,   "Eutelsat S.A. | Eutelsat S.A." },
 	{ 0x0040, 0x0040,   "Croatian Post and Telecommunications | HPT Croatian Post and Telecommunications" },
 	{ 0x0041, 0x0041,   "Mindport network | Mindport" },
+	{ 0x0042, 0x0042,   "DTV haber ve Gorsel yayýncilik | DTV haber ve Gorsel yayýncilik" },
+	{ 0x0043, 0x0043,   "arena Sport Rechte und Marketing GmbH | arena Sport Rechte und Marketing GmbH" },
+	{ 0x0044, 0x0044,   "VisionTV LLC | VisionTV LLC" },
+	{ 0x0045, 0x0045,   "SES-Sirius | SES-Sirius" },
 	{ 0x0046, 0x0047,   "1 degree W | Telenor" },
 	{ 0x0048, 0x0048,   "STAR DIGITAL | STAR DIGITAL A.S." },
 	{ 0x0049, 0x0049,   "Sentech Digital Satellite | Sentech" },
+	{ 0x004A, 0x004B,   "Rambouillet ES | Rambouillet ES" },
+	{ 0x004C, 0x004C,   "Skylogic S.A. | Skylogic S.A." },
+	{ 0x004D, 0x004D,   "Skylogic S.A. | Skylogic S.A." },
+	{ 0x004E, 0x004F,   "Eutelsat S.A. | Eutelsat S.A." },
 	{ 0x0050, 0x0050,   "Croatian Radio and Television | HRT Croatian Radio and Television" },
 	{ 0x0051, 0x0051,   "Havas | Havas" },
 	{ 0x0052, 0x0052,   "Osaka Yusen Satellite | StarGuide Digital Networks" },
+	{ 0x0053, 0x0053,   "MEO, Serviços de Comunicações e Multimédia, S.A | MEO, Serviços de Comunicações e Multimédia, S.A" },
 	{ 0x0054, 0x0054,   "Teracom Satellite | Teracom AB Satellite Services" },
 	{ 0x0055, 0x0055,   "Sirius Satellite System European Coverage | NSAB (Teracom)" },
+	{ 0x0056, 0x0056,   "Viasat Satellite Services AB | Viasat Satellite Services AB" },
 	{ 0x0058, 0x0058,   "(Thiacom 1 & 2 co-located 78.5°E) | UBC Thailand" },
+	{ 0x0059, 0x0059,   "Bharat Business Channel Limited | Bharat Business Channel Limited" },
+	{ 0x005A, 0x005A,   "ICO Satellite Services G.P. | ICO Satellite Services G.P." },
+	{ 0x005B, 0x005B,   "ZON | ZON" },
+	{ 0x005C, 0x005C,   "TNL PCS | TNL PCS" },
 	{ 0x005E, 0x005E,   "Sirius Satellite System Nordic Coverage | NSAB" },
 	{ 0x005F, 0x005F,   "Sirius Satellite System FSS | NSAB" },
 	{ 0x0060, 0x0060,   "MSG MediaServices GmbH | MSG MediaServices GmbH" },
+	{ 0x0064, 0x0064,   "T-Kábel | T-Kábel Magyarország Kft." },
+	{ 0x0065, 0x0065,   "France Telecom Orange | France Telecom Orange" },
+	{ 0x0066, 0x0066,   "Zweites Deutsches Fernsehen - ZDF (cable contribution) | Zweites Deutsches Fernsehen - ZDF" },
+	{ 0x0068, 0x0068,   "SinemaTV | SinemaTV" },
 	{ 0x0069, 0x0069,   "(Optus B3 156°E) | (Optus Communications)" },
 	{ 0x0070, 0x0070,   "BONUM1; 36 Degrees East | NTV+" },
 	{ 0x0073, 0x0073,   "(PanAmSat 4 68.5°E) | (Pan American Satellite System)" },
@@ -1122,7 +1156,11 @@ char *dvbstrOriginalNetwork_ID (u_int i)
 	{ 0x007E, 0x007E,   "Eutelsat Satellite System at 7°E | European Telecommunications Satellite Organization" },
 	{ 0x007F, 0x007F,   "Eutelsat Satellite System at 7°E | EUTELSAT - European Telecommunications Satellite Organization" },
 	{ 0x0085, 0x0085,   "BetaTechnik | BetaTechnik" },
+	{ 0x0088, 0x0088,   "Deutscher Televisionsklub Betriebs GmbH | Deutscher Televisionsklub Betriebs GmbH" },
 	{ 0x0090, 0x0090,   "National network | TDF" },
+	{ 0x009A, 0x009B,   "Eutelsat satellite system at 9°East | Rambouillet ES" },
+	{ 0x009C, 0x009D,   "Eutelsat satellite system at 9°East | Skylogic S.A." },
+	{ 0x009E, 0x009F,   "Eutelsat satellite system at 9°East | Eutelsat S.A." },
 	{ 0x00A0, 0x00A0,   "National Cable Network | News Datacom" },
 	{ 0x00A1, 0x00A5,   "News Satellite Network | News Datacom" },
 	{ 0x00A6, 0x00A6,   "ART | ART" },

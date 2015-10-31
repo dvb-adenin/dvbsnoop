@@ -1,2 +1,7 @@
-*.o
+*.a
+*.deps
 *.kdev4
+*.log
+*.o
+*.status
+Makefile
