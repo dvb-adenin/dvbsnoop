@@ -103,18 +103,18 @@ void section_PRIVATE_SES_ASTRA_0x91 (u_char *b, int len)
 
 	while(section_length > 4)
 	{
-		outBit_Sx_NL (3,"service_ID: ",			b,  0,16);
-		outBit_Sx_NL (3,"transport_stream_ID: ",	b, 16,16);
-		outBit_Sx_NL (3,"Original_network_id: ",	b, 32,16);
-		outBit_Sx_NL (3,"(?): ",			b, 48,16);
-		outBit_Sx_NL (3,"(?): ",			b, 64,16);
-		outBit_Sx_NL (3,"(?): ",			b, 80,16);
+		outBit_Sx_NL (3,"  service_ID: ",			b,  0,16);
+		outBit_Sx_NL (3,"  transport_stream_ID: ",	b, 16,16);
+		outBit_Sx_NL (3,"  Original_network_id: ",	b, 32,16);
+		outBit_Sx_NL (3,"  (?): ",			b, 48,16);
+		outBit_Sx_NL (3,"  (?): ",			b, 64,16);
+		outBit_Sx_NL (3,"  (?): ",			b, 80,16);
 		b += 12;
 		section_length -=12;
 
-		x = descriptor (b, DVB_SI);
-		b += x;
-		section_length -= x;
+//		x = descriptor (b, DVB_SI);
+//		b += x;
+//		section_length -= x;
 
 		do
 		{
@@ -122,7 +122,7 @@ void section_PRIVATE_SES_ASTRA_0x91 (u_char *b, int len)
 			x = descriptor (b, DVB_SI);
 			b += x;
 			section_length -= x;
-		}while (b[0]!= 0xd1);
+		}while (tag != 0xd1);
 	}
    outBit_Sx_NL (5,"CRC: ",		b, 0, 32);
 

@@ -50,5 +50,5 @@ void descriptor_PRIVATE_SES_ASTRA_0xd1 (u_char *b)
 	tag	 = b[0];
 	len	 = b[1];
 
-	outBit_Sx_NL (3,"service_ID: ", b, 16,16);
+	outBit_Sx_NL (3,"  service_ID: ", b+2, 0,16);
 }
