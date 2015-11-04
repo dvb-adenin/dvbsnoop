@@ -4,6 +4,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/src
 
 SUBDIRS = \
 	default \
+	SES_ASTRA \
 	premiere.de 
 
 noinst_LIBRARIES = libprivate.a

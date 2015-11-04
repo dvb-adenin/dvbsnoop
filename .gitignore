@@ -5,3 +5,6 @@
 *.o
 *.status
 Makefile
+Makefile.in
+compile
+*.cache

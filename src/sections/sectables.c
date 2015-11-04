@@ -366,7 +366,6 @@ static TABLE_ID_FUNC table_id_func[] = {
      {  0x7E, 0x7E,  section_DIT },
      {  0x7F, 0x7F,  section_SIT },
      {  0x80, 0x8F,  section_EMM_ECM },   /* $$$ Conditional Access Message Section */
-
      {  0x90, 0xFE,  section_PRIVATE },	 /* opps!? DSM-CC or other stuff?! */
      {  0,0, NULL }
   };
