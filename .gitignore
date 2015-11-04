@@ -11,3 +11,7 @@ compile
 *.m4
 configure
 ltmain.sh
+missing
+install-sh
+depcomp
+INSTALL
